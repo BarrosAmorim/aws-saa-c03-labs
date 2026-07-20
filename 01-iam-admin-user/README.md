@@ -56,21 +56,17 @@ O usuário administrador recebe suas permissões por meio do grupo **Administrat
 ```text
                  AWS Account
                       │
-                      ▼
-                 Root User
-             (uso excepcional)
-                      │
-──────────────────────────────────────
-                      │
-                      ▼
-              IAM Administrators
-                      │
-              AdministratorAccess
-                      │
-                      ▼
-                Usuário Barros
-                      │
-                 Console + MFA
+      ┌───────────────┴───────────────┐
+      │                               │
+ Root User                     IAM Administrators
+(uso excepcional)                     │
+                                      ▼
+                         AdministratorAccess
+                                      │
+                                      ▼
+                               Usuário Barros
+                                      │
+                                Console + MFA
 ```
 
 ## Passo 1 - Acessando o serviço IAM
@@ -133,7 +129,7 @@ Ao concluir este laboratório foi possível:
 - Criar um grupo de administradores.
 - Criar um usuário IAM administrativo.
 - Associar o usuário ao grupo Administrators.
-- Herdar permissões através da política AdministratorAccess.
+- Herdar permissões administrativas por meio do grupo `Administrators`.
 - Habilitar acesso ao AWS Management Console.
 - Configurar autenticação multifator (MFA).
 - Eliminar a necessidade de utilizar a conta Root para tarefas administrativas diárias.
@@ -148,3 +144,13 @@ Durante este laboratório foram seguidas as seguintes recomendações da AWS:
 - Habilitar MFA para aumentar a segurança da conta.
 - Não criar Access Keys desnecessariamente.
 - Aplicar o princípio do menor privilégio sempre que possível.
+
+## Conhecimentos adquiridos
+
+Ao concluir este laboratório foi possível compreender:
+
+- A diferença entre a conta Root e usuários IAM.
+- O funcionamento de grupos e políticas no IAM.
+- A importância do uso do MFA para proteção das contas.
+- Como aplicar o princípio do menor privilégio.
+- As boas práticas recomendadas pela AWS para gerenciamento de identidades e acessos.
