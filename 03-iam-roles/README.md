@@ -79,24 +79,24 @@ Neste laboratório foi criada uma IAM Role destinada ao serviço Amazon EC2. A R
       ┌───────────────┴────────────────┐
       │                                │
       ▼                                ▼
- Amazon EC2              IAM Role (EC2-S3-ReadOnly-Role)
+ Amazon EC2         IAM Role (EC2-S3-ReadOnly-Role)
                                    │
-                    Trust Policy (EC2 Principal)
+                     Trust Policy (EC2 Principal)
                                    │
                            sts:AssumeRole
                                    │
                                    ▼
-                   AWS Security Token Service
+                      AWS Security Token Service
                              (AWS STS)
                                    │
-                    Temporary Credentials
+                        Temporary Credentials
                                    │
                                    ▼
-              Permission Policy
-          AmazonS3ReadOnlyAccess
+                          Permission Policy
+                         AmazonS3ReadOnlyAccess
                                    │
                                    ▼
-                     Amazon S3 Bucket
+                            Amazon S3 Bucket
 ```
 
 ---
