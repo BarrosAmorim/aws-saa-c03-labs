@@ -6,9 +6,9 @@ Documentação do laboratório desenvolvido durante os estudos para a certifica�
 
 ## Sobre este projeto
 
-Este laboratório apresenta os diferentes tipos de políticas do AWS Identity and Access Management (IAM), demonstrando como criar e gerenciar permissões utilizando o Console de Gerenciamento da AWS.
+Este laboratório apresenta os diferentes tipos de políticas do **AWS Identity and Access Management (IAM)**, demonstrando como criar e gerenciar permissões utilizando o Console de Gerenciamento da AWS.
 
-Durante o laboratório foram exploradas as políticas gerenciadas pela AWS (AWS Managed Policies), criada uma política gerenciada pelo cliente (Customer Managed Policy) utilizando o **Visual Editor** e criada uma política Inline para compreender suas diferenças e aplicações.
+Durante o laboratório foram exploradas as políticas gerenciadas pela AWS (**AWS Managed Policies**), criada uma política gerenciada pelo cliente (**Customer Managed Policy**) utilizando o **Visual Editor** e criada uma **Inline Policy** para compreender suas diferenças e aplicações.
 
 ---
 
@@ -31,7 +31,7 @@ Durante o laboratório foram exploradas as políticas gerenciadas pela AWS (AWS 
 
 ## Objetivo
 
-Compreender como o AWS Identity and Access Management (IAM) utiliza políticas para controlar permissões, identificando as diferenças entre AWS Managed Policies, Customer Managed Policies e Inline Policies.
+Compreender o funcionamento das políticas do **AWS Identity and Access Management (IAM)**, explorando os diferentes tipos de políticas disponíveis, suas características e aplicações práticas no controle de acesso aos recursos da AWS.
 
 ---
 
@@ -50,7 +50,7 @@ Compreender como o AWS Identity and Access Management (IAM) utiliza políticas p
 - Visual Editor
 - JSON Policy Document
 - IAM Permissions
-- Principle of Least Privilege
+- Principle of Least Privilege (Princípio do Menor Privilégio)
 
 ---
 
@@ -66,13 +66,16 @@ Compreender como o AWS Identity and Access Management (IAM) utiliza políticas p
 
 ## Arquitetura
 
+Neste laboratório foi utilizado o usuário administrador criado no projeto anterior para estudar os diferentes tipos de políticas disponíveis no IAM.
+
 ```text
                  AWS Account
                       │
                       ▼
-               Usuário Barros
+              IAM User (Barros)
                       │
-              AdministratorAccess
+                      ▼
+          AdministratorAccess
                       │
       ┌───────────────┼────────────────┐
       │               │                │
@@ -87,7 +90,9 @@ AWS Managed     Customer Managed    Inline Policy
 
 Foi criada uma política gerenciada pelo cliente (**Customer Managed Policy**) utilizando o **Visual Editor** do AWS IAM.
 
-Durante a criação da política foi possível selecionar o serviço, definir as ações permitidas e revisar as permissões antes da criação da política.
+As **Customer Managed Policies** permitem que administradores criem conjuntos de permissões personalizados para atender necessidades específicas da organização, oferecendo maior flexibilidade em comparação às políticas gerenciadas pela AWS.
+
+Durante a criação da política foi possível selecionar o serviço, definir as ações permitidas e revisar as permissões antes de concluir sua criação.
 
 Embora a política tenha sido criada utilizando o editor visual, o IAM gera automaticamente um documento JSON equivalente para representar as permissões configuradas.
 
@@ -101,9 +106,11 @@ Embora a política tenha sido criada utilizando o editor visual, o IAM gera auto
 
 Foi criada uma **Inline Policy** diretamente no usuário **Barros** utilizando o **Visual Editor** do IAM.
 
-As Inline Policies ficam vinculadas exclusivamente ao usuário, grupo ou role onde são criadas e não podem ser reutilizadas em outros recursos.
+As **Inline Policies** permanecem vinculadas exclusivamente ao usuário, grupo ou role onde foram criadas, não podendo ser reutilizadas em outros recursos.
 
-Após compreender seu funcionamento, a política foi removida.
+Esse tipo de política é recomendado apenas quando uma permissão deve existir exclusivamente para um único recurso.
+
+Após compreender seu funcionamento, a política foi removida para manter o ambiente organizado.
 
 ### Evidência
 
@@ -113,7 +120,7 @@ Após compreender seu funcionamento, a política foi removida.
 
 ## Passo 3 - Comparando os tipos de políticas
 
-Durante este laboratório foram analisados os três tipos de políticas disponíveis no IAM.
+Durante este laboratório foram analisados os três principais tipos de políticas disponíveis no IAM.
 
 | Tipo de política        | Criada pela AWS | Reutilizável | Principal utilização                                                  |
 | ----------------------- | --------------- | ------------ | --------------------------------------------------------------------- |
@@ -121,7 +128,9 @@ Durante este laboratório foram analisados os três tipos de políticas disponí
 | Customer Managed Policy | Não             | Sim          | Políticas criadas pelo cliente para atender necessidades específicas. |
 | Inline Policy           | Não             | Não          | Políticas exclusivas de um único usuário, grupo ou role.              |
 
-Também foi possível compreender que toda política do IAM é representada internamente por um documento JSON composto pelos seguintes elementos:
+Embora o **Visual Editor** facilite a criação das políticas, todas elas são armazenadas internamente pela AWS como documentos JSON.
+
+Os principais elementos de uma política IAM são:
 
 | Elemento  | Descrição                                                     |
 | --------- | ------------------------------------------------------------- |
@@ -135,25 +144,28 @@ Também foi possível compreender que toda política do IAM é representada inte
 
 ## Resultado Final
 
-Ao concluir este laboratório foi possível:
+Ao concluir este laboratório foi possível compreender os principais mecanismos utilizados pelo IAM para controle de permissões, identificando quando utilizar cada tipo de política e como elas são representadas internamente pela AWS.
 
-- Explorar as AWS Managed Policies disponíveis no IAM.
-- Criar uma Customer Managed Policy utilizando o Visual Editor.
-- Criar uma Inline Policy.
-- Compreender as diferenças entre os principais tipos de políticas do IAM.
-- Entender como as permissões são representadas internamente por documentos JSON.
+As seguintes atividades foram realizadas:
+
+- Exploração das AWS Managed Policies disponíveis no IAM.
+- Criação de uma Customer Managed Policy utilizando o Visual Editor.
+- Criação de uma Inline Policy.
+- Comparação entre os diferentes tipos de políticas do IAM.
+- Compreensão da estrutura interna das políticas em formato JSON.
 
 ---
 
 ## Conhecimentos adquiridos
 
-Durante este laboratório foram adquiridos os seguintes conhecimentos:
+Ao finalizar este laboratório foram consolidados os seguintes conhecimentos:
 
 - Funcionamento das políticas do IAM.
 - Diferenças entre AWS Managed Policies, Customer Managed Policies e Inline Policies.
 - Utilização do Visual Editor para criação de políticas.
-- Estrutura básica de documentos JSON utilizados pelo IAM.
+- Estrutura básica dos documentos JSON utilizados pelo IAM.
 - Aplicação do princípio do menor privilégio (Principle of Least Privilege).
+- Importância da reutilização de políticas para facilitar a administração de permissões.
 
 ---
 
@@ -164,14 +176,16 @@ Durante este laboratório foram seguidas as seguintes recomendações da AWS:
 - Utilizar políticas reutilizáveis sempre que possível.
 - Criar permissões específicas para cada necessidade.
 - Evitar conceder privilégios além do necessário.
-- Aplicar o princípio do menor privilégio.
+- Aplicar o princípio do menor privilégio (Least Privilege).
+- Preferir Customer Managed Policies em vez de Inline Policies quando houver possibilidade de reutilização.
+- Revisar periodicamente as permissões concedidas aos usuários e grupos.
 - Documentar todas as configurações realizadas.
 
 ---
 
 ## Referências
 
-- AWS Identity and Access Management (IAM)
+- AWS Identity and Access Management User Guide
 - IAM Policies
-- IAM JSON Policy Elements
+- IAM JSON Policy Elements Reference
 - AWS Security Best Practices
